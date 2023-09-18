@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build: .
+    tty: true
+    stdin_open: true
+    image: amazon_clone
+    container_name: amazon_clone
+    # volumes:
+    #   - type: bind
+    #     source: /home/faisal/uploads
+    #     target: /home/node/sharp_shopping_assistant_api/uploads
+    #   - type: bind
+    #     source: /home/faisal/sharpshoppingicons
+    #     target: /home/node/sharp_shopping_assistant_api/sharpshoppingicons
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
